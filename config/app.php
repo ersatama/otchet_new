@@ -169,6 +169,7 @@ return [
         App\Providers\Repositories\RoleRepositoryProvider::class,
         App\Providers\Repositories\OrganizationRepositoryProvider::class,
         App\Providers\Repositories\EmployeeRepositoryProvider::class,
+        App\Providers\Repositories\TaxRepositoryProvider::class,
         /*
          * Application Service Providers...
          */

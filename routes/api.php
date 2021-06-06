@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\EmployeeController;
+use App\Http\Controllers\Api\TaxController;
 
 Route::prefix('user')->group(function() {
     Route::post('create',[UserController::class,'create'])->name('user.create');
@@ -19,6 +20,13 @@ Route::prefix('employee')->group(function() {
     Route::post('update',[EmployeeController::class,'create'])->name('employee.update');
     Route::get('delete/{organizationId}/{userId}',[EmployeeController::class,'delete'])->name('employee.delete');
     Route::get('list/{organizationId}',[EmployeeController::class,'list'])->name('employee.list');
+});
+
+Route::prefix('tax')->group(function() {
+    Route::post('create',[TaxController::class,'create'])->name('tax.create');
+    Route::post('delete/{id}',[TaxController::class,'delete'])->name('tax.delete');
+    Route::get('organization/{organizationId}',[TaxController::class,'getByOrganizationId'])->name('tax.getByOrganizationId');
+    Route::get('user/{userId}',[TaxController::class,'getByUserId'])->name('tax.getByUserId');
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
