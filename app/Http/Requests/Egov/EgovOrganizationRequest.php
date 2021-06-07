@@ -2,15 +2,12 @@
 
 namespace App\Http\Requests\Egov;
 
-use App\Domain\Contracts\UserContract;
-use Dirape\Token\Token;
+use App\Domain\Contracts\MainContract;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
-use App\Domain\Contracts\MainContract;
 use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Support\Facades\Hash;
 
-class EgovRequest extends FormRequest
+class EgovOrganizationRequest extends FormRequest
 {
 
     public function authorize()
@@ -26,16 +23,12 @@ class EgovRequest extends FormRequest
             MainContract::ECP_PASSWORD  =>  'required',
             MainContract::GOVERNMENT_REVENUE_CODE   =>  'required',
             MainContract::GOVERNMENT_REVENUE_CODE_BY_PLACE  =>  'required',
-            MainContract::RESIDENT  =>  'required',
-            MainContract::PASSWORD  =>  'required|min:8|max:100',
         ];
     }
 
     public function validated():array
     {
         $request = $this->validator->validated();
-        $request[MainContract::PASSWORD]    =   Hash::make($request[MainContract::PASSWORD]);
-        $request[MainContract::API_TOKEN]   =   (new Token())->Unique(UserContract::TABLE,UserContract::API_TOKEN,80);
         return $request;
     }
 

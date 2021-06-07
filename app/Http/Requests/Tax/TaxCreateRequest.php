@@ -32,7 +32,7 @@ class TaxCreateRequest extends FormRequest
             MainContract::IIN   =>  'required|digits:12|exits:users,iin',
             MainContract::FULL_NAME =>  'required|min:2|max:255',
             MainContract::YEAR  =>  'required|min:4|max:4',
-            MainContract::SEMESTER  =>  'required|min:1|max:1',
+            MainContract::SEMESTER  =>  'required',
             MainContract::SEPARATE_CATEGORIES   =>  'required|min:1|max:2',
             MainContract::DECLARATION_TYPE      =>  'required|min:1|max:2',
             MainContract::NOTIFICATION_NUMBER   =>  'required',

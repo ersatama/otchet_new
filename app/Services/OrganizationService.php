@@ -23,4 +23,14 @@ class OrganizationService extends BaseService
     {
         return $this->organizationRepository->getByColumn(OrganizationContract::BIN,$bin);
     }
+
+    public function getByUserId(int $userId)
+    {
+        return $this->organizationRepository->getByUserId($userId);
+    }
+
+    public function delete($organizationId)
+    {
+        $this->organizationRepository->delete($organizationId);
+    }
 }

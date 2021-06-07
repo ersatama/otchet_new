@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\EmployeeController;
 use App\Http\Controllers\Api\TaxController;
+use App\Http\Controllers\Api\OrganizationController;
 
 Route::prefix('user')->group(function() {
     Route::post('create',[UserController::class,'create'])->name('user.create');
@@ -13,6 +14,13 @@ Route::prefix('user')->group(function() {
     Route::post('file',[UserController::class,'file'])->name('user.file');
     Route::get('id/{userId}',[UserController::class,'getById'])->name('user.id');
     Route::get('token/{token}',[UserController::class,'apiToken'])->name('user.token');
+});
+
+Route::prefix('organization')->group(function() {
+    Route::get('user/{userId}',[OrganizationController::class,'getByUserId'])->name('organization.user');
+    Route::get('bin/{bin}',[OrganizationController::class,'getByBin'])->name('organization.bin');
+    Route::get('delete/{organizationId}',[OrganizationController::class,'delete'])->name('organization.delete');
+    Route::post('file/{userId}',[OrganizationController::class,'file'])->name('organization.create');
 });
 
 Route::prefix('employee')->group(function() {
@@ -24,7 +32,7 @@ Route::prefix('employee')->group(function() {
 
 Route::prefix('tax')->group(function() {
     Route::post('create',[TaxController::class,'create'])->name('tax.create');
-    Route::post('delete/{id}',[TaxController::class,'delete'])->name('tax.delete');
+    Route::get('delete/{id}',[TaxController::class,'delete'])->name('tax.delete');
     Route::get('organization/{organizationId}',[TaxController::class,'getByOrganizationId'])->name('tax.getByOrganizationId');
     Route::get('user/{userId}',[TaxController::class,'getByUserId'])->name('tax.getByUserId');
 });
