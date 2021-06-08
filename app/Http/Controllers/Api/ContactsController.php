@@ -9,6 +9,8 @@ use App\Services\ContactsService;
 class ContactsController extends Controller
 {
     protected $contactsService;
+
+
     public function __construct(ContactsService $contactsService)
     {
         $this->contactsService  =   $contactsService;

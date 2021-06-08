@@ -11,6 +11,7 @@ class EgovService extends BaseService
     protected $path =   'http://127.0.0.1:14579';
 
     public function getByEcp(array $request) {
+
         try {
             $nca    =   new NCANodeClient($this->path);
             $info   =   @$nca->pkcs12Info(
@@ -21,6 +22,7 @@ class EgovService extends BaseService
             if (!method_exists($info,'getRaw')) {
                 return false;
             }
+
             $data   =   @$info->getRaw();
             if (!is_array($data) || $data[MainContract::KEY_USAGE] !== MainContract::AUTH || $data[MainContract::KEY_USER][0] === MainContract::INDIVIDUAL || $data[MainContract::KEY_USER][1] !== MainContract::CEO) {
                 return false;

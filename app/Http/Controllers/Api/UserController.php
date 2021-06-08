@@ -37,7 +37,9 @@ class UserController extends Controller
 
     public function file(EgovRequest $request)
     {
+
         if ($data   =   $this->egovService->getByEcp($request->validated())) {
+
             if ($this->userService->getByIin($data[MainContract::IIN])) {
                 return response([MainContract::MESSAGE   =>  __('main.iin_exists')],400);
             } elseif ($this->organizationService->getByBin($data[MainContract::BIN])) {
@@ -45,8 +47,9 @@ class UserController extends Controller
             }
             $user   =   $this->userService->create($data);
             $data[MainContract::USER_ID]    =   $user->id;
+
             $user->organization =   $this->organizationService->create($data);
-            return new UserResource($user);
+            return $user;
         }
         return response([MainContract::MESSAGE   =>  __('main.ecp_error')],400);
     }
