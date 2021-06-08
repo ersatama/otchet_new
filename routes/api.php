@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\EmployeeController;
 use App\Http\Controllers\Api\TaxController;
 use App\Http\Controllers\Api\OrganizationController;
+use App\Http\Controllers\Api\ContactsController;
 
 Route::prefix('user')->group(function() {
     Route::post('create',[UserController::class,'create'])->name('user.create');
@@ -37,7 +38,10 @@ Route::prefix('tax')->group(function() {
     Route::get('user/{userId}',[TaxController::class,'getByUserId'])->name('tax.getByUserId');
 });
 
-
+Route::prefix('contacts')->group(function() {
+    Route::get('faq',[ContactsController::class,'faq'])->name('contacts.faq');
+    Route::get('news',[ContactsController::class,'news'])->name('contacts.news');
+});
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

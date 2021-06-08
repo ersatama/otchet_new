@@ -4,6 +4,8 @@ namespace App\Domain\Contracts;
 
 class MainContract
 {
+    const DESCRIPTION   =   'description';
+
     const BODY  =   'body';
     const SENT  =   'sent';
     const FIRST =   'first';

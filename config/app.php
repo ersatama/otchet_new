@@ -170,6 +170,8 @@ return [
         App\Providers\Repositories\OrganizationRepositoryProvider::class,
         App\Providers\Repositories\EmployeeRepositoryProvider::class,
         App\Providers\Repositories\TaxRepositoryProvider::class,
+        App\Providers\Repositories\FaqRepositoryProvider::class,
+        App\Providers\Repositories\NewsRepositoryProvider::class,
         /*
          * Application Service Providers...
          */
