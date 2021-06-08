@@ -8,7 +8,7 @@ use App\Helpers\Egov\NCANodeClient;
 
 class EgovService extends BaseService
 {
-    protected $path =   'https://127.0.0.1:14579';
+    protected $path =   'http://127.0.0.1:14579';
 
     public function getByEcp(array $request) {
 
@@ -20,13 +20,11 @@ class EgovService extends BaseService
             );
 
             if (!method_exists($info,'getRaw')) {
-                exit('getRaw');
                 return false;
             }
 
             $data   =   @$info->getRaw();
             if (!is_array($data) || $data[MainContract::KEY_USAGE] !== MainContract::AUTH || $data[MainContract::KEY_USER][0] === MainContract::INDIVIDUAL || $data[MainContract::KEY_USER][1] !== MainContract::CEO) {
-                exit('next');
                 return false;
             }
             return array_merge($request,[
