@@ -20,11 +20,13 @@ class EgovService extends BaseService
             );
 
             if (!method_exists($info,'getRaw')) {
+                exit('getRaw');
                 return false;
             }
 
             $data   =   @$info->getRaw();
             if (!is_array($data) || $data[MainContract::KEY_USAGE] !== MainContract::AUTH || $data[MainContract::KEY_USER][0] === MainContract::INDIVIDUAL || $data[MainContract::KEY_USER][1] !== MainContract::CEO) {
+                exit('next');
                 return false;
             }
             return array_merge($request,[
