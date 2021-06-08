@@ -8,7 +8,7 @@ use App\Helpers\Egov\NCANodeClient;
 
 class EgovService extends BaseService
 {
-    protected $path =   'http://127.0.0.1:14579';
+    protected $path =   'https://127.0.0.1:14579';
 
     public function getByEcp(array $request) {
 
