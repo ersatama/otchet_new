@@ -12,13 +12,14 @@ use App\Domain\Contracts\UserContract;
 
 class User extends Authenticatable
 {
+    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasFactory, Notifiable;
 
     protected $fillable =   UserContract::FILLABLE;
     protected $hidden   =   UserContract::HIDDEN;
     protected $casts    =   UserContract::CASTS;
 
-    public function role()
+    public function roles()
     {
         return $this->belongsTo(Role::class,UserContract::ROLE_ID,RoleContract::ID);
     }

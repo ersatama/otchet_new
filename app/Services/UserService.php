@@ -15,17 +15,17 @@ class UserService extends BaseService
 
     public function create(array $data)
     {
-        return $this->userRepository->create($data,'role');
+        return $this->userRepository->create($data,'roles');
     }
 
     public function update(int $id, array $data)
     {
-        return $this->userRepository->update($id,$data,'role');
+        return $this->userRepository->update($id,$data,'roles');
     }
 
     public function getById(int $id)
     {
-        return $this->userRepository->getById($id,'role');
+        return $this->userRepository->getById($id,'roles');
     }
 
     public function getByIin(int $iin)

@@ -9,28 +9,28 @@ class UserResource extends JsonResource
 {
     public function toArray($request)
     {
-        return $this;
+
         $arr    =   [
-            UserContract::ID    =>  $this->id,
-            UserContract::RESIDENT  =>  $this->resident,
-            UserContract::IIN   =>  $this->iin,
-            UserContract::NAME  =>  $this->name,
-            UserContract::SURNAME   =>  $this->surname,
-            UserContract::LAST_NAME =>  $this->last_name,
-            UserContract::EMAIL     =>  $this->email,
-            UserContract::EMAIL_VERIFIED_AT =>  $this->email_verified_at,
-            UserContract::GOVERNMENT_REVENUE_CODE   =>  $this->government_revenue_code,
-            UserContract::GOVERNMENT_REVENUE_CODE_BY_PLACE  =>  $this->government_revenue_code_by_place,
-            UserContract::STATUS    =>  $this->status,
-            UserContract::API_TOKEN =>  $this->api_token,
+            UserContract::ID    =>  $this->{UserContract::ID},
+            UserContract::RESIDENT  =>  $this->{UserContract::RESIDENT},
+            UserContract::IIN   =>  $this->{UserContract::IIN},
+            UserContract::NAME  =>  $this->{UserContract::NAME},
+            UserContract::SURNAME   =>  $this->{UserContract::SURNAME},
+            UserContract::LAST_NAME =>  $this->{UserContract::LAST_NAME},
+            UserContract::EMAIL     =>  $this->{UserContract::EMAIL},
+            UserContract::EMAIL_VERIFIED_AT =>  $this->{UserContract::EMAIL_VERIFIED_AT},
+            UserContract::GOVERNMENT_REVENUE_CODE   =>  $this->{UserContract::GOVERNMENT_REVENUE_CODE},
+            UserContract::GOVERNMENT_REVENUE_CODE_BY_PLACE  =>  $this->{UserContract::GOVERNMENT_REVENUE_CODE_BY_PLACE},
+            UserContract::STATUS    =>  $this->{UserContract::STATUS},
+            UserContract::API_TOKEN =>  $this->{UserContract::API_TOKEN},
         ];
 
-        if (isset($this->role)) {
-            $arr[UserContract::ROLE_ID] =   new RoleResource($this->role);
+        if (isset($this->roles)) {
+            $arr[UserContract::ROLE_ID] =   new RoleResource($this->roles);
         }
 
         if (isset($this->organization)) {
-            $arr[UserContract::ORGANIZATION]    =   new OrganizationResource($this->organization);
+            $arr[UserContract::ORGANIZATION]    =   new OrganizationCollection($this->organization);
         }
 
         return $arr;

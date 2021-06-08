@@ -9,6 +9,6 @@ class RoleContract extends MainContract
     const TABLE =   'roles';
 
     const FILLABLE  =   [
-        self::TITLE
+        self::NAME
     ];
 }
