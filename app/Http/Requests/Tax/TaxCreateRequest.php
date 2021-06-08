@@ -29,7 +29,7 @@ class TaxCreateRequest extends FormRequest
         return [
             MainContract::USER_ID   =>  'required|exists:users,id',
             MainContract::ORGANIZATION_ID   =>  'required|exists:organizations,id',
-            MainContract::IIN   =>  'required|digits:12|exits:users,iin',
+            MainContract::IIN   =>  'required|digits:12|exists:users,iin',
             MainContract::FULL_NAME =>  'required|min:2|max:255',
             MainContract::YEAR  =>  'required|min:4|max:4',
             MainContract::SEMESTER  =>  'required',

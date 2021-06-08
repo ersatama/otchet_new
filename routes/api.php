@@ -37,6 +37,8 @@ Route::prefix('tax')->group(function() {
     Route::get('user/{userId}',[TaxController::class,'getByUserId'])->name('tax.getByUserId');
 });
 
+
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });

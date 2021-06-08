@@ -25,6 +25,9 @@ trait BaseRepository
 
     public function update(int $id, array $data, $with = '')
     {
+        if (array_key_exists(MainContract::ID,$data)) {
+            unset($data[MainContract::ID]);
+        }
         $this->model::where(MainContract::ID,$id)->update($data);
         return $this->getById($id,$with);
     }
