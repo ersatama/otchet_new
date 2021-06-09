@@ -15,6 +15,7 @@ use App\Services\OrganizationService;
 use Illuminate\Http\Request;
 use App\Http\Requests\User\UserCreateRequest;
 use App\Http\Requests\User\UserUpdateRequest;
+use App\Http\Requests\User\UserAuthRequest;
 use App\Http\Requests\Egov\EgovRequest;
 
 use App\Http\Resources\UserResource;
@@ -49,6 +50,19 @@ class UserController extends Controller
             return $user;
         }
         return response([MainContract::MESSAGE   =>  __('main.ecp_error')],400);
+    }
+
+    public function auth(UserAuthRequest $request)
+    {
+        $data   =   $request->validated();
+        if ($user   =   $this->userService->getByIin($data[UserContract::IIN])) {
+            $hasher = app('hash');
+            if ($hasher->check($data[UserContract::PASSWORD], $user->{UserContract::PASSWORD})) {
+                return new UserResource($user);
+            }
+            return response()->json(['message'  =>  'Incorrect Password'],400);
+        }
+        return response()->json(['message'  =>  'User Not Found'],404);
     }
 
     public function create(UserCreateRequest $request)

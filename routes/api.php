@@ -15,6 +15,7 @@ header('Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE');
 header('Access-Control-Allow-Headers: Content-Type, X-Auth-Token, Origin, Authorization,X-localization,X-No-Cache');
 
 Route::prefix('user')->group(function() {
+    Route::post('auth',[UserController::class,'auth'])->name('user.auth');
     Route::post('create',[UserController::class,'create'])->name('user.create');
     Route::post('update/{userId}',[UserController::class,'update'])->name('user.update');
     Route::post('file',[UserController::class,'file'])->name('user.file');
