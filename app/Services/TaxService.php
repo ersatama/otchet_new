@@ -32,4 +32,9 @@ class TaxService extends BaseService
     {
         return $this->taxRepository->getByUserId($userId);
     }
+
+    public function getById($id)
+    {
+        return $this->taxRepository->getById($id);
+    }
 }

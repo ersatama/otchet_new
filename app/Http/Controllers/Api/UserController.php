@@ -53,21 +53,41 @@ class UserController extends Controller
 
     public function create(UserCreateRequest $request)
     {
-        return new UserResource($this->userService->create($request->validated()));
+        if ($user = $this->userService->create($request->validated())) {
+            return new UserResource($user);
+        }
+        return response()->json(['message'   =>  'user not found'],404);
     }
 
     public function update($id,UserUpdateRequest $request)
     {
-        return new UserResource($this->userService->update($id,$request->validated()));
+        if ($user   =   $this->userService->update($id,$request->validated())) {
+            return new UserResource($user);
+        }
+        return response()->json(['message'   =>  'user not found'],404);
+    }
+
+    public function getByIin($iin)
+    {
+        if ($user   =   $this->userService->getByIin($iin)) {
+            return new UserResource($user);
+        }
+        return response()->json(['message'   =>  'user not found'],404);
     }
 
     public function getById(int $id)
     {
-        return new UserResource($this->userService->getById($id));
+        if ($user   =   $this->userService->getById($id)) {
+            return new UserResource($user);
+        }
+        return response()->json(['message'   =>  'user not found'],404);
     }
 
     public function apiToken($token)
     {
-        return new UserResource($this->userService->getByApiToken($token));
+        if ($user   =   $this->userService->getByApiToken($token)) {
+            return new UserResource($user);
+        }
+        return response()->json(['message'   =>  'user not found'],404);
     }
 }

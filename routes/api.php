@@ -19,6 +19,7 @@ Route::prefix('user')->group(function() {
     Route::post('file',[UserController::class,'file'])->name('user.file');
     Route::get('id/{userId}',[UserController::class,'getById'])->name('user.id');
     Route::get('token/{token}',[UserController::class,'apiToken'])->name('user.token');
+    Route::get('iin/{iin}',[UserController::class,'getByIin'])->name('user.iin');
 });
 
 Route::prefix('organization')->group(function() {
@@ -40,6 +41,7 @@ Route::prefix('tax')->group(function() {
     Route::get('delete/{id}',[TaxController::class,'delete'])->name('tax.delete');
     Route::get('organization/{organizationId}',[TaxController::class,'getByOrganizationId'])->name('tax.getByOrganizationId');
     Route::get('user/{userId}',[TaxController::class,'getByUserId'])->name('tax.getByUserId');
+    Route::get('id/{id}',[TaxController::class,'getById'])->name('tax.getById');
 });
 
 Route::prefix('contacts')->group(function() {

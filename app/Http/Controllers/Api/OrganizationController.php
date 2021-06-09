@@ -36,7 +36,10 @@ class OrganizationController extends Controller
 
     public function getByBin($bin)
     {
-        return new OrganizationResource($this->organizationService->getByBin($bin));
+        if ($organization   =   $this->organizationService->getByBin($bin)) {
+            return new OrganizationResource($organization);
+        }
+        return response()->json(['message'  =>  'Organization not found'],404);
     }
 
     public function delete($organizationId)
@@ -50,9 +53,10 @@ class OrganizationController extends Controller
             if ($this->organizationService->getByBin($data[MainContract::BIN])) {
                 return response([MainContract::MESSAGE   =>  __('main.bin_exists')],400);
             }
-            $user   =   $this->userService->update($userId, $data);
-            $user->organization =   $this->organizationService->create($data);
-            return new UserResource($user);
+            if ($user   =   $this->userService->update($userId, $data)) {
+                $user->organization =   $this->organizationService->create($data);
+                return new UserResource($user);
+            }
         }
         return response([MainContract::MESSAGE   =>  __('main.ecp_error')],400);
     }

@@ -19,7 +19,10 @@ class TaxController extends Controller
 
     public function create(TaxCreateRequest $request)
     {
-        return new TaxResource($this->taxService->create($request->validated()));
+        if ($tax    =   $this->taxService->create($request->validated())) {
+            return new TaxResource($tax);
+        }
+        return response()->json(['message'  =>  'Tax not found',404]);
     }
 
     public function delete($id)
@@ -35,5 +38,13 @@ class TaxController extends Controller
     public function getByUserId($userId)
     {
         return new TaxCollection($this->taxService->getByUserId($userId));
+    }
+
+    public function getById($id)
+    {
+        if ($tax    =   $this->taxService->getById($id)) {
+            return new TaxResource($tax);
+        }
+        return response()->json(['message'  =>  'Tax not found'],404);
     }
 }
