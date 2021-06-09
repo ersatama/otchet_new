@@ -4,7 +4,9 @@ namespace App\Domain\Contracts;
 
 class MainContract
 {
-
+    const PAYMENT_DATE  =   'payment_date';
+    const PAYMENT_TYPE  =   'payment_type';
+    const SUM   =   'sum';
     const DESCRIPTION   =   'description';
 
     const BODY  =   'body';

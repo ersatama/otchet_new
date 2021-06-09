@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\EmployeeController;
 use App\Http\Controllers\Api\TaxController;
 use App\Http\Controllers\Api\OrganizationController;
 use App\Http\Controllers\Api\ContactsController;
+use App\Http\Controllers\Api\CompulsoryPensionContributionController;
 
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE');
@@ -42,6 +43,15 @@ Route::prefix('tax')->group(function() {
     Route::get('organization/{organizationId}',[TaxController::class,'getByOrganizationId'])->name('tax.getByOrganizationId');
     Route::get('user/{userId}',[TaxController::class,'getByUserId'])->name('tax.getByUserId');
     Route::get('id/{id}',[TaxController::class,'getById'])->name('tax.getById');
+});
+
+Route::prefix('compulsory_pension_contribution')->group(function() {
+    Route::post('create',[CompulsoryPensionContributionController::class,'create'])->name('compulsory_pension_contribution.create');
+    Route::get('delete/{id}',[CompulsoryPensionContributionController::class,'delete'])->name('compulsory_pension_contribution.delete');
+    Route::get('iin/{iin}',[CompulsoryPensionContributionController::class,'getByIin'])->name('compulsory_pension_contribution.iin');
+    Route::get('bin/{bin}',[CompulsoryPensionContributionController::class,'getByBin'])->name('compulsory_pension_contribution.bin');
+    Route::get('user/{userId}',[CompulsoryPensionContributionController::class,'getByUserId'])->name('compulsory_pension_contribution.iin');
+    Route::get('id/{id}',[CompulsoryPensionContributionController::class,'getById'])->name('compulsory_pension_contribution.iin');
 });
 
 Route::prefix('contacts')->group(function() {

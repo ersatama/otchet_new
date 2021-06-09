@@ -39,4 +39,12 @@ class TaxRepositoryEloquent implements TaxRepositoryInterface
             [MainContract::STATUS,MainContract::ON]
         ])->get();
     }
+
+    public function getById($id)
+    {
+        return $this->model::where([
+            [MainContract::ID,$id],
+            [MainContract::STATUS,MainContract::ON]
+        ])->first();
+    }
 }

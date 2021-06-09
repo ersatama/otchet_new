@@ -20,6 +20,17 @@
         <i class="nav-icon las la-copyright"></i> Организации
     </a>
 </li>
+<li class='nav-item'>
+    <a class='nav-link' href='{{ backpack_url('staff') }}'>
+        <i class="nav-icon las la-briefcase"></i> Сотрудники
+    </a>
+</li>
+<li class="nav-title">Налоги</li>
+<li class='nav-item'>
+    <a class='nav-link' href='{{ backpack_url('tax') }}'>
+        <i class="nav-icon las la-coins"></i> Налоги
+    </a>
+</li>
 <li class="nav-title">Контакты</li>
 <li class='nav-item'>
     <a class='nav-link' href='{{ backpack_url('faq') }}'>
@@ -31,3 +42,4 @@
         <i class="nav-icon las la-newspaper"></i> Новости
     </a>
 </li>
+

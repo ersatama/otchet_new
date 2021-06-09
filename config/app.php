@@ -172,6 +172,7 @@ return [
         App\Providers\Repositories\TaxRepositoryProvider::class,
         App\Providers\Repositories\FaqRepositoryProvider::class,
         App\Providers\Repositories\NewsRepositoryProvider::class,
+        App\Providers\Repositories\CompulsoryPensionContributionRepositoryProvider::class,
         /*
          * Application Service Providers...
          */
