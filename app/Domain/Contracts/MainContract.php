@@ -4,6 +4,12 @@ namespace App\Domain\Contracts;
 
 class MainContract
 {
+    const IIC   =   'iic';
+    const BIC   =   'bic';
+    const EN    =   'en';
+    const KZ    =   'kz';
+    const RU    =   'ru';
+    const LANG  =   'lang';
     const PAYMENT_DATE  =   'payment_date';
     const PAYMENT_TYPE  =   'payment_type';
     const SUM   =   'sum';

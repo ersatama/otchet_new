@@ -173,6 +173,7 @@ return [
         App\Providers\Repositories\FaqRepositoryProvider::class,
         App\Providers\Repositories\NewsRepositoryProvider::class,
         App\Providers\Repositories\CompulsoryPensionContributionRepositoryProvider::class,
+        App\Providers\Repositories\BankRepositoryProvider::class,
         /*
          * Application Service Providers...
          */

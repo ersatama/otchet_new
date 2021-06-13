@@ -21,6 +21,7 @@ class UserUpdateRequest extends FormRequest
     {
         return [
             UserContract::RESIDENT  => 'nullable',
+            UserContract::LANG      =>  'nullable',
             UserContract::ROLE_ID   =>  'nullable|exists:roles,id',
             UserContract::IIN   =>  'nullable|digits:12',
             UserContract::NAME  =>  'nullable',

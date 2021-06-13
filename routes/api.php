@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\TaxController;
 use App\Http\Controllers\Api\OrganizationController;
 use App\Http\Controllers\Api\ContactsController;
 use App\Http\Controllers\Api\CompulsoryPensionContributionController;
+use App\Http\Controllers\Api\BankController;
 
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE');
@@ -16,12 +17,20 @@ header('Access-Control-Allow-Headers: Content-Type, X-Auth-Token, Origin, Author
 
 Route::prefix('user')->group(function() {
     Route::post('auth',[UserController::class,'auth'])->name('user.auth');
+    Route::post('file',[UserController::class,'file'])->name('user.file');
     Route::post('create',[UserController::class,'create'])->name('user.create');
     Route::post('update/{userId}',[UserController::class,'update'])->name('user.update');
-    Route::post('file',[UserController::class,'file'])->name('user.file');
-    Route::get('id/{userId}',[UserController::class,'getById'])->name('user.id');
-    Route::get('token/{token}',[UserController::class,'apiToken'])->name('user.token');
+    Route::get('id/{id}',[UserController::class,'getById'])->name('user.id');
     Route::get('iin/{iin}',[UserController::class,'getByIin'])->name('user.iin');
+    Route::get('token/{token}',[UserController::class,'apiToken'])->name('user.token');
+});
+
+Route::prefix('bank')->group(function() {
+    Route::post('create',[BankController::class,'create'])->name('bank.create');
+    Route::post('update/{id}',[BankController::class,'update'])->name('bank.update');
+    Route::get('delete/{id}',[BankController::class,'delete'])->name('bank.delete');
+    Route::get('id/{id}',[BankController::class,'getById'])->name('bank.id');
+    Route::get('user/{userId}',[BankController::class,'getByUserId'])->name('bank.user');
 });
 
 Route::prefix('organization')->group(function() {

@@ -7,11 +7,7 @@ use App\Domain\Contracts\UserContract;
 
 class CreateUsersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create(UserContract::TABLE, function (Blueprint $table) {
@@ -22,6 +18,11 @@ class CreateUsersTable extends Migration
                 UserContract::OFF,
                 UserContract::UNDEFINED
             ])->default(UserContract::UNDEFINED);
+            $table->enum(UserContract::LANG,[
+                UserContract::KZ,
+                UserContract::RU,
+                UserContract::EN
+            ])->default(UserContract::RU);
             $table->bigInteger(UserContract::IIN)->unique();
             $table->string(UserContract::NAME)->nullable();
             $table->string(UserContract::SURNAME)->nullable();
@@ -44,11 +45,6 @@ class CreateUsersTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists(UserContract::TABLE);

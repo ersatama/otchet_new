@@ -22,6 +22,7 @@ class UserCreateRequest extends FormRequest
         return [
             UserContract::ROLE_ID   =>  'required|exists:roles,id',
             UserContract::RESIDENT  => 'nullable',
+            UserContract::LANG  =>  'required',
             UserContract::IIN   =>  'required|digits:12',
             UserContract::NAME  =>  'nullable',
             UserContract::SURNAME   =>  'nullable',

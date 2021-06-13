@@ -13,6 +13,7 @@ class UserResource extends JsonResource
         $arr    =   [
             UserContract::ID    =>  $this->{UserContract::ID},
             UserContract::RESIDENT  =>  $this->{UserContract::RESIDENT},
+            UserContract::LANG  =>  $this->{UserContract::LANG},
             UserContract::IIN   =>  $this->{UserContract::IIN},
             UserContract::NAME  =>  $this->{UserContract::NAME},
             UserContract::SURNAME   =>  $this->{UserContract::SURNAME},

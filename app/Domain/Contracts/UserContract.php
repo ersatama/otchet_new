@@ -8,6 +8,7 @@ class UserContract extends MainContract
     const FILLABLE  =   [
         self::ROLE_ID,
         self::RESIDENT,
+        self::LANG,
         self::IIN,
         self::NAME,
         self::SURNAME,
