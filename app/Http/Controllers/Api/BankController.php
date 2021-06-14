@@ -15,7 +15,7 @@ use App\Http\Resources\BankResource;
 
 class BankController extends Controller
 {
-    protected BankService $bankService;
+    protected $bankService;
 
     public function __construct(BankService $bankService)
     {

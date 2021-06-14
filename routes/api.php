@@ -60,8 +60,8 @@ Route::prefix('compulsory_pension_contribution')->group(function() {
     Route::get('delete/{id}',[CompulsoryPensionContributionController::class,'delete'])->name('compulsory_pension_contribution.delete');
     Route::get('iin/{iin}',[CompulsoryPensionContributionController::class,'getByIin'])->name('compulsory_pension_contribution.iin');
     Route::get('bin/{bin}',[CompulsoryPensionContributionController::class,'getByBin'])->name('compulsory_pension_contribution.bin');
-    Route::get('user/{userId}',[CompulsoryPensionContributionController::class,'getByUserId'])->name('compulsory_pension_contribution.iin');
-    Route::get('id/{id}',[CompulsoryPensionContributionController::class,'getById'])->name('compulsory_pension_contribution.iin');
+    Route::get('user/{userId}',[CompulsoryPensionContributionController::class,'getByUserId'])->name('compulsory_pension_contribution.user');
+    Route::get('id/{id}',[CompulsoryPensionContributionController::class,'getById'])->name('compulsory_pension_contribution.id');
 });
 
 Route::prefix('contacts')->group(function() {
