@@ -51,8 +51,8 @@ Route::prefix('tax')->group(function() {
     Route::post('create',[TaxController::class,'create'])->name('tax.create');
     Route::get('delete/{id}',[TaxController::class,'delete'])->name('tax.delete');
     Route::get('organization/{organizationId}',[TaxController::class,'getByOrganizationId'])->name('tax.getByOrganizationId');
-    Route::get('user/{userId}',[TaxController::class,'getByUserId'])->name('tax.getByUserId');
-    Route::get('id/{id}',[TaxController::class,'getById'])->name('tax.getById');
+    Route::get('user/{userId}',[TaxController::class,'getByUserId'])->name('tax.user');
+    Route::get('id/{id}',[TaxController::class,'getById'])->name('tax.id');
 });
 
 Route::prefix('compulsory_pension_contribution')->group(function() {
