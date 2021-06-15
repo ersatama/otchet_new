@@ -174,6 +174,7 @@ return [
         App\Providers\Repositories\NewsRepositoryProvider::class,
         App\Providers\Repositories\CompulsoryPensionContributionRepositoryProvider::class,
         App\Providers\Repositories\BankRepositoryProvider::class,
+        App\Providers\Repositories\TokenRepositoryProvider::class,
         /*
          * Application Service Providers...
          */

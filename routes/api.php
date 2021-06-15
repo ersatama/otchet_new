@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\OrganizationController;
 use App\Http\Controllers\Api\ContactsController;
 use App\Http\Controllers\Api\CompulsoryPensionContributionController;
 use App\Http\Controllers\Api\BankController;
+use App\Http\Controllers\Api\TokenController;
 
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE');
@@ -62,6 +63,13 @@ Route::prefix('compulsory_pension_contribution')->group(function() {
     Route::get('bin/{bin}',[CompulsoryPensionContributionController::class,'getByBin'])->name('compulsory_pension_contribution.bin');
     Route::get('user/{userId}',[CompulsoryPensionContributionController::class,'getByUserId'])->name('compulsory_pension_contribution.user');
     Route::get('id/{id}',[CompulsoryPensionContributionController::class,'getById'])->name('compulsory_pension_contribution.id');
+});
+
+Route::prefix('token')->group(function() {
+    Route::post('create',[TokenController::class,'create'])->name('token.create');
+    Route::get('delete/{id}',[TokenController::class,'delete'])->name('token.delete');
+    Route::get('user/{userId}',[TokenController::class,'getByUserId'])->name('token.user');
+    Route::get('id/{id}',[TokenController::class,'getById'])->name('token.id');
 });
 
 Route::prefix('contacts')->group(function() {

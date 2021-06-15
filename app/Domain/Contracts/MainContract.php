@@ -4,6 +4,10 @@ namespace App\Domain\Contracts;
 
 class MainContract
 {
+    const IOS   =   'ios';
+    const ANDROID   =   'android';
+    const DEVICE    =   'device';
+    const TOKEN =   'token';
     const IIC   =   'iic';
     const BIC   =   'bic';
     const EN    =   'en';
