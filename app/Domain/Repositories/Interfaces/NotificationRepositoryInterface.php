@@ -4,7 +4,7 @@
 namespace App\Domain\Repositories\Interfaces;
 
 
-interface TokenRepositoryInterface
+interface NotificationRepositoryInterface
 {
 
 }

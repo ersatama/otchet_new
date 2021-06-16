@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Requests\Token;
+namespace App\Http\Requests\Notification;
 
+use App\Domain\Contracts\NotificationContract;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
-use App\Domain\Contracts\TokenContract;
 
-class TokenCreateRequest extends FormRequest
+class NotificationUpdateRequest extends FormRequest
 {
 
     public function authorize()
@@ -18,9 +18,8 @@ class TokenCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            TokenContract::USER_ID  =>  'required|exists:users,id',
-            TokenContract::DEVICE   =>  'required|in:android,ios',
-            TokenContract::TOKEN    =>  'required',
+            NotificationContract::TITLE         =>  'nullable',
+            NotificationContract::DESCRIPTION   =>  'nullable',
         ];
     }
 

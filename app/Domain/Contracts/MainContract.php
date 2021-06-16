@@ -4,6 +4,8 @@ namespace App\Domain\Contracts;
 
 class MainContract
 {
+    const DATA  =   'data';
+    const TO    =   'to';
     const IOS   =   'ios';
     const ANDROID   =   'android';
     const DEVICE    =   'device';

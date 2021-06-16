@@ -5,21 +5,16 @@ namespace App\Http\Controllers\Api;
 use App\Domain\Contracts\UserContract;
 use App\Http\Controllers\Controller;
 
-use Dirape\Token\Token;
-use Illuminate\Support\Facades\Hash;
-
 use App\Services\UserService;
 use App\Services\EgovService;
 use App\Services\OrganizationService;
 
-use Illuminate\Http\Request;
 use App\Http\Requests\User\UserCreateRequest;
 use App\Http\Requests\User\UserUpdateRequest;
 use App\Http\Requests\User\UserAuthRequest;
 use App\Http\Requests\Egov\EgovRequest;
 
 use App\Http\Resources\UserResource;
-
 use App\Domain\Contracts\MainContract;
 
 class UserController extends Controller

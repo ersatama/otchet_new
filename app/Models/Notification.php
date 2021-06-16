@@ -2,13 +2,12 @@
 
 namespace App\Models;
 
-use App\Domain\Contracts\TokenContract;
+use App\Domain\Contracts\NotificationContract;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Token extends Model
+class Notification extends Model
 {
     use HasFactory;
-
-    protected $fillable =   TokenContract::FILLABLE;
+    protected $fillable =   NotificationContract::FILLABLE;
 }
