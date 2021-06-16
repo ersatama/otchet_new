@@ -59,7 +59,7 @@ class NotificationController extends Controller
     public function send($id)
     {
         if ($notification   =   $this->notificationService->getById($id)) {
-            //MobileNotification::dispatch($notification)->onQueue('mobile.notification');
+            MobileNotification::dispatch($notification);
             return response(['message'   =>  'Message sent'],200);
         }
         return response(['message'   =>  'Notification Not Found'],400);
