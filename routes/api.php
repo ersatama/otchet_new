@@ -8,9 +8,13 @@ use App\Http\Controllers\Api\EmployeeController;
 use App\Http\Controllers\Api\TaxController;
 use App\Http\Controllers\Api\OrganizationController;
 use App\Http\Controllers\Api\ContactsController;
-use App\Http\Controllers\Api\CompulsoryPensionContributionController;
 use App\Http\Controllers\Api\BankController;
 use App\Http\Controllers\Api\NotificationController;
+use App\Http\Controllers\Api\CompulsoryPensionContributionController;
+use App\Http\Controllers\Api\IndividualIncomeTaxController;
+use App\Http\Controllers\Api\SocialSecurityContributionController;
+use App\Http\Controllers\Api\CompulsoryDeductionsController;
+use App\Http\Controllers\Api\MandatoryContributionsController;
 
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE');
@@ -63,6 +67,40 @@ Route::prefix('compulsory_pension_contribution')->group(function() {
     Route::get('bin/{bin}',[CompulsoryPensionContributionController::class,'getByBin'])->name('compulsory_pension_contribution.bin');
     Route::get('user/{userId}',[CompulsoryPensionContributionController::class,'getByUserId'])->name('compulsory_pension_contribution.user');
     Route::get('id/{id}',[CompulsoryPensionContributionController::class,'getById'])->name('compulsory_pension_contribution.id');
+});
+
+Route::prefix('individual_income_tax')->group(function() {
+    Route::post('create',[IndividualIncomeTaxController::class,'create'])->name('individual_income_tax.create');
+    Route::get('delete/{id}',[IndividualIncomeTaxController::class,'delete'])->name('individual_income_tax.delete');
+    Route::get('iin/{iin}',[IndividualIncomeTaxController::class,'getByIin'])->name('individual_income_tax.iin');
+    Route::get('user/{userId}',[IndividualIncomeTaxController::class,'getByUserId'])->name('individual_income_tax.user');
+    Route::get('id/{id}',[IndividualIncomeTaxController::class,'getById'])->name('individual_income_tax.id');
+});
+
+Route::prefix('social_security_contributions')->group(function() {
+    Route::post('create',[SocialSecurityContributionController::class,'create'])->name('social_security_contributions.create');
+    Route::get('delete/{id}',[SocialSecurityContributionController::class,'delete'])->name('social_security_contributions.delete');
+    Route::get('iin/{iin}',[SocialSecurityContributionController::class,'getByIin'])->name('social_security_contributions.iin');
+    Route::get('bin/{bin}',[SocialSecurityContributionController::class,'getByBin'])->name('social_security_contributions.bin');
+    Route::get('user/{userId}',[SocialSecurityContributionController::class,'getByUserId'])->name('social_security_contributions.user');
+    Route::get('id/{id}',[SocialSecurityContributionController::class,'getById'])->name('social_security_contributions.id');
+});
+
+Route::prefix('compulsory_deductions')->group(function() {
+    Route::post('create',[CompulsoryDeductionsController::class,'create'])->name('compulsory_deductions.create');
+    Route::get('delete/{id}',[CompulsoryDeductionsController::class,'delete'])->name('compulsory_deductions.delete');
+    Route::get('iin/{iin}',[CompulsoryDeductionsController::class,'getByIin'])->name('compulsory_deductions.iin');
+    Route::get('bin/{bin}',[CompulsoryDeductionsController::class,'getByBin'])->name('compulsory_deductions.bin');
+    Route::get('user/{userId}',[CompulsoryDeductionsController::class,'getByUserId'])->name('compulsory_deductions.user');
+    Route::get('id/{id}',[CompulsoryDeductionsController::class,'getById'])->name('compulsory_deductions.id');
+});
+
+Route::prefix('mandatory_contributions')->group(function() {
+    Route::post('create',[MandatoryContributionsController::class,'create'])->name('mandatory_contributions.create');
+    Route::get('delete/{id}',[MandatoryContributionsController::class,'delete'])->name('mandatory_contributions.delete');
+    Route::get('iin/{iin}',[MandatoryContributionsController::class,'getByIin'])->name('mandatory_contributions.iin');
+    Route::get('user/{userId}',[MandatoryContributionsController::class,'getByUserId'])->name('mandatory_contributions.user');
+    Route::get('id/{id}',[MandatoryContributionsController::class,'getById'])->name('mandatory_contributions.id');
 });
 
 Route::prefix('notification')->group(function() {

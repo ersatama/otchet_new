@@ -14,7 +14,7 @@ use App\Http\Resources\CompulsoryPensionContributionCollection;
 
 class CompulsoryPensionContributionController extends Controller
 {
-    protected CompulsoryPensionContributionService $compulsoryPensionContributionService;
+    protected $compulsoryPensionContributionService;
     public function __construct(CompulsoryPensionContributionService $compulsoryPensionContributionService)
     {
         $this->compulsoryPensionContributionService =   $compulsoryPensionContributionService;

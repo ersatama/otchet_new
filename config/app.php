@@ -170,11 +170,19 @@ return [
         App\Providers\Repositories\OrganizationRepositoryProvider::class,
         App\Providers\Repositories\EmployeeRepositoryProvider::class,
         App\Providers\Repositories\TaxRepositoryProvider::class,
+
         App\Providers\Repositories\FaqRepositoryProvider::class,
         App\Providers\Repositories\NewsRepositoryProvider::class,
-        App\Providers\Repositories\CompulsoryPensionContributionRepositoryProvider::class,
+
         App\Providers\Repositories\BankRepositoryProvider::class,
         App\Providers\Repositories\NotificationRepositoryProvider::class,
+
+        App\Providers\Repositories\CompulsoryPensionContributionRepositoryProvider::class,
+        App\Providers\Repositories\IndividualIncomeTaxRepositoryProvider::class,
+        App\Providers\Repositories\SocialSecurityContributionsRepositoryProvider::class,
+        App\Providers\Repositories\CompulsoryDeductionsRepositoryProvider::class,
+        App\Providers\Repositories\MandatoryContributionsRepositoryProvider::class,
+
         /*
          * Application Service Providers...
          */
