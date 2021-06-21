@@ -15,6 +15,7 @@ use App\Http\Controllers\Api\IndividualIncomeTaxController;
 use App\Http\Controllers\Api\SocialSecurityContributionController;
 use App\Http\Controllers\Api\CompulsoryDeductionsController;
 use App\Http\Controllers\Api\MandatoryContributionsController;
+use App\Http\Controllers\Api\AccessController;
 
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE');
@@ -101,6 +102,14 @@ Route::prefix('mandatory_contributions')->group(function() {
     Route::get('iin/{iin}',[MandatoryContributionsController::class,'getByIin'])->name('mandatory_contributions.iin');
     Route::get('user/{userId}',[MandatoryContributionsController::class,'getByUserId'])->name('mandatory_contributions.user');
     Route::get('id/{id}',[MandatoryContributionsController::class,'getById'])->name('mandatory_contributions.id');
+});
+
+Route::prefix('access')->group(function() {
+    Route::post('create',[AccessController::class,'create'])->name('access.create');
+    Route::post('update/{id}',[AccessController::class,'update'])->name('access.update');
+    Route::get('delete/{id}',[AccessController::class,'delete'])->name('access.delete');
+    Route::get('iin/{iin}',[AccessController::class,'getByIin'])->name('access.iin');
+    Route::get('user/{userId}',[AccessController::class,'getByUserId'])->name('access.user');
 });
 
 Route::prefix('notification')->group(function() {

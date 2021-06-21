@@ -182,7 +182,7 @@ return [
         App\Providers\Repositories\SocialSecurityContributionsRepositoryProvider::class,
         App\Providers\Repositories\CompulsoryDeductionsRepositoryProvider::class,
         App\Providers\Repositories\MandatoryContributionsRepositoryProvider::class,
-
+        App\Providers\Repositories\AccessRepositoryProvider::class,
         /*
          * Application Service Providers...
          */

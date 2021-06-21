@@ -4,6 +4,10 @@ namespace App\Domain\Contracts;
 
 class MainContract
 {
+    const DOCUMENTS =   'documents';
+    const CASH_MACHINE  =   'cash_machine';
+    const VIRTUAL_WAREHOUSE =   'virtual_warehouse';
+    const TAX   =   'tax';
     const DATA  =   'data';
     const TO    =   'to';
     const IOS   =   'ios';
