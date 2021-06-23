@@ -4,6 +4,7 @@ namespace App\Domain\Contracts;
 
 class MainContract
 {
+    const NOTIFICATION  =   'notification';
     const DOCUMENTS =   'documents';
     const CASH_MACHINE  =   'cash_machine';
     const VIRTUAL_WAREHOUSE =   'virtual_warehouse';

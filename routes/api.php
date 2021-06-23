@@ -16,6 +16,7 @@ use App\Http\Controllers\Api\SocialSecurityContributionController;
 use App\Http\Controllers\Api\CompulsoryDeductionsController;
 use App\Http\Controllers\Api\MandatoryContributionsController;
 use App\Http\Controllers\Api\AccessController;
+use App\Http\Controllers\Api\ShopController;
 
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE');
@@ -110,6 +111,13 @@ Route::prefix('access')->group(function() {
     Route::get('delete/{id}',[AccessController::class,'delete'])->name('access.delete');
     Route::get('iin/{iin}',[AccessController::class,'getByIin'])->name('access.iin');
     Route::get('user/{userId}',[AccessController::class,'getByUserId'])->name('access.user');
+});
+
+Route::prefix('shop')->group(function() {
+    Route::post('create',[ShopController::class,'create'])->name('shop.create');
+    Route::post('update',[ShopController::class,'update'])->name('shop.update');
+    Route::get('delete/{id}',[ShopController::class,'delete'])->name('shop.delete');
+    Route::get('organization/{organizationId}',[ShopController::class,'getByOrganizationId'])->name('shop.organization');
 });
 
 Route::prefix('notification')->group(function() {

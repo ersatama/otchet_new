@@ -41,7 +41,7 @@ class Mobile
     {
         $this->curl->post($this->url,$this->token,[
             MainContract::TO    =>  '/topics/ios',
-            MainContract::DATA  =>  $data
+            MainContract::NOTIFICATION  =>  $data
         ]);
     }
 }
