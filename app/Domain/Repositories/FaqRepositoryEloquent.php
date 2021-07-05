@@ -19,6 +19,6 @@ class FaqRepositoryEloquent implements FaqRepositoryInterface
 
     public function get()
     {
-        return $this->model::where(MainContract::STATUS,MainContract::ON)->get();
+        return $this->model::with('faqList')->where(MainContract::STATUS,MainContract::ON)->get();
     }
 }

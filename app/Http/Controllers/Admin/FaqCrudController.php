@@ -24,7 +24,7 @@ class FaqCrudController extends CrudController
     protected function setupShowOperation()
     {
         CRUD::column(MainContract::TITLE)->label('Вопрос');
-        CRUD::column(MainContract::DESCRIPTION)->label('Ответ');
+        CRUD::column(MainContract::DESCRIPTION)->label('Описание');
         CRUD::column(MainContract::STATUS)->label('Статус');
     }
 
@@ -38,17 +38,7 @@ class FaqCrudController extends CrudController
     {
         CRUD::setValidation(FaqRequest::class);
         CRUD::field(MainContract::TITLE)->label('Вопрос');
-        $this->crud->addField([
-            'name'  =>  MainContract::DESCRIPTION,
-            'label' =>  'Ответ',
-            'type'  =>  'ckeditor',
-            'extra_plugins' =>  ['widget'],
-            'options'   =>  [
-                'autoGrow_minHeight'   => 200,
-                'autoGrow_bottomSpace' => 50,
-                'removePlugins'        => 'resize,maximize',
-            ]
-        ]);
+        CRUD::field(MainContract::DESCRIPTION)->label('Описание');
         CRUD::field(MainContract::STATUS)->label('Статус')->type('select_from_array')->options([
             MainContract::ON    =>  'Активный',
             MainContract::OFF   =>  'Заблокирован'

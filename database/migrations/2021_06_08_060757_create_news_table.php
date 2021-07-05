@@ -13,7 +13,7 @@ class CreateNewsTable extends Migration
         Schema::create(NewsContract::TABLE, function (Blueprint $table) {
             $table->id();
             $table->string(NewsContract::TITLE)->nullable();
-            $table->text(NewsContract::DESCRIPTION)->nullable();
+            $table->text(NewsContract::IMAGE)->nullable();
             $table->enum(NewsContract::STATUS,[
                 NewsContract::ON,
                 NewsContract::OFF

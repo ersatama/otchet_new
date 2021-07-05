@@ -25,21 +25,37 @@
         <i class="nav-icon las la-briefcase"></i> Сотрудники
     </a>
 </li>
+<li class="nav-title">Уведомления</li>
+<li class='nav-item'>
+    <a class='nav-link' href='{{ backpack_url('notification') }}'>
+        <i class='nav-icon las la-bell'></i> Уведомления
+    </a>
+</li>
 <li class="nav-title">Налоги</li>
 <li class='nav-item'>
     <a class='nav-link' href='{{ backpack_url('tax') }}'>
         <i class="nav-icon las la-coins"></i> Налоги
     </a>
 </li>
-<li class="nav-title">Контакты</li>
+<li class="nav-title">Чаво</li>
 <li class='nav-item'>
     <a class='nav-link' href='{{ backpack_url('faq') }}'>
         <i class="nav-icon las la-question-circle"></i> Чаво
     </a>
 </li>
 <li class='nav-item'>
+    <a class='nav-link' href='{{ backpack_url('faqlist') }}'>
+        <i class='nav-icon la la-question-circle'></i> Чаво список
+    </a>
+</li>
+<li class="nav-title">Новости</li>
+<li class='nav-item'>
     <a class='nav-link' href='{{ backpack_url('news') }}'>
         <i class="nav-icon las la-newspaper"></i> Новости
     </a>
 </li>
-
+<li class='nav-item'>
+    <a class='nav-link' href='{{ backpack_url('newslist') }}'>
+        <i class='nav-icon la la-newspaper'></i> Новости список
+    </a>
+</li>

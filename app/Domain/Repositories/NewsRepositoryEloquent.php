@@ -19,6 +19,6 @@ class NewsRepositoryEloquent implements NewsRepositoryInterface
 
     public function get()
     {
-        return $this->model::where(MainContract::STATUS,MainContract::ON)->get();
+        return $this->model::with('newsList')->where(MainContract::STATUS,MainContract::ON)->get();
     }
 }

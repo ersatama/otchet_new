@@ -4,6 +4,9 @@ namespace App\Domain\Contracts;
 
 class MainContract
 {
+    const NEWS_ID   =   'news_id';
+    const FAQ_ID    =   'faq_id';
+    const IMAGE =   'image';
     const NOTIFICATION  =   'notification';
     const DOCUMENTS =   'documents';
     const CASH_MACHINE  =   'cash_machine';

@@ -24,7 +24,7 @@ class NewsCrudController extends CrudController
     protected function setupShowOperation()
     {
         CRUD::column(MainContract::TITLE)->label('Заголовок');
-        CRUD::column(MainContract::DESCRIPTION)->label('Контент');
+        CRUD::column(MainContract::IMAGE)->type('image')->label('Фото');
         CRUD::column(MainContract::STATUS)->label('Статус');
     }
 
@@ -40,15 +40,9 @@ class NewsCrudController extends CrudController
 
         CRUD::field(MainContract::TITLE)->label('Заголовок');
         $this->crud->addField([
-            'name'  =>  MainContract::DESCRIPTION,
-            'label' =>  'Контент',
-            'type'  =>  'ckeditor',
-            'extra_plugins' =>  ['widget'],
-            'options'   =>  [
-                'autoGrow_minHeight'   => 200,
-                'autoGrow_bottomSpace' => 50,
-                'removePlugins'        => 'resize,maximize',
-            ]
+            'name'  =>  MainContract::IMAGE,
+            'label' =>  'Фото',
+            'type'  =>  'image',
         ]);
         CRUD::field(MainContract::STATUS)->label('Статус')->type('select_from_array')->options([
             MainContract::ON    =>  'Активный',

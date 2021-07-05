@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Domain\Contracts\FaqListContract;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Domain\Contracts\FaqContract;
@@ -13,14 +14,9 @@ class Faq extends Model
 
     protected $fillable =   FaqContract::FILLABLE;
 
-    public function setDescriptionAttribute($value)
+    public function faqList()
     {
-        $this->attributes[FaqContract::DESCRIPTION]    =   htmlspecialchars($value);
-    }
-
-    public function getDescriptionAttribute($value)
-    {
-        return htmlspecialchars_decode($value);
+        return $this->hasMany(FaqList::class,FaqContract::ID,FaqListContract::FAQ_ID);
     }
 
 }
